@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "icon" type = "image/png" href = "Img/Logo.png">
+    <title>Yinco - Contatti</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="StileContatti.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md fixed-top sticky-top">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><h2 class="titolo">YINCO</h2></a>
+      <div class="collapse navbar-collapse" id="collapse_target">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Chatbot.html">Chatbot</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Contatti.html">Contatti</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Impostazioni.html">Impostazioni</a>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="Login.html"><button class="btn btn btn-light" type="button">Login</button></a></li>
+      </ul>
+    </nav>
+
+    <div class="Contatti">
+      <h2>Contatti</h2>
+      <hr>
+      <h4>Sede azienda Yinco:</h4>
+      <p>Via Sommarive, 9, 38123 Povo, Trento(TN)</p>
+      <div id="map"></div>
+      <h4 class="referenti">Contatti dei referenti</h4>
+      <p class="referenti">Daniele Notarangelo: abc@gmail.com, 3693867839</p>
+      <p class="referenti">Luca Dalla Bernardina: def@gmail.com, 3693867839</p>
+      <p class="referenti">Zakaria Aoukaili: ghi@gmail.com, 3693867839</p>
+      <br>
+    </div>
+    
+    <script>
+      window.sr = ScrollReveal();
+        sr.reveal('.Contatti', {
+          duration: 2000,
+          origin: 'top',
+          distance: '200px'
+        });
+    </script>
+
+    <script>
+      $(function() {
+        // Smooth Scrolling
+        $('a[href*="#"]:not([href="#"])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html, body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
+          }
+        });
+      });
+    </script>
+
+    <script>
+        var map = L.map('map').setView([46.067429, 11.1503429], 20);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([46.067429, 11.1503429]).addTo(map)
+            .bindPopup('<a href="https://www.google.it/maps/place/Polo+Ferrari+-+Povo+2/@46.067429,11.1503429,18.72z/data=!4m13!1m7!3m6!1s0x4782769398f78a33:0xa0709898bf37370!2s38123+Povo+TN!3b1!8m2!3d46.0658551!4d11.1525516!3m4!1s0x4782770086ce4b37:0x888603f1051586bf!8m2!3d46.0678404!4d11.1503963">Clicca</a>')
+            .openPopup();
+      </script>
+
+  </body>
+</html>
