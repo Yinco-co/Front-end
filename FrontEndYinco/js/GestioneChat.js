@@ -3,11 +3,7 @@ const msgerInput = document.getElementById("testo");
 const msgerChat = get(".messaggi");
 
 const BOT_MSGS = [
-  "Hi, how are you?",
-  "Ohh... I can't understand what you trying to say. Sorry!",
-  "I like to play games... But I don't know how to play!",
-  "Sorry if my answers are not relevant. :))",
-  "I feel sleepy! :("
+  "TemplateRisposte.html"
 ];
 
 const BOT_IMG = "Img/Logo.png";
@@ -52,7 +48,7 @@ function appendMessageBot(name, img, side, text) {
           <div class="msg-info-name">${name}</div>
         </div>
 
-        <div class="msg-text">${text}</div>
+        <div class="msg-text"><a href="${text}" target="blank">LINK</div>
       </div>
     </div>
   `;
@@ -62,8 +58,7 @@ function appendMessageBot(name, img, side, text) {
 }
 
 function botResponse() {
-  const r = random(0, BOT_MSGS.length - 1);
-  const msgText = BOT_MSGS[r];
+  const msgText = BOT_MSGS[0];
   const delay = msgText.split(" ").length * 100;
 
   setTimeout(() => {
