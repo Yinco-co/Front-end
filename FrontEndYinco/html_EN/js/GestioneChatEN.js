@@ -4,7 +4,7 @@ const msgerChat = get(".messaggi");
 
 const docenti = ["Ranise", "Passerone", "Giorgini", "Tomasi", "Bucchiarone", "Casari", "Bouquet", "Velha", "Montresor", "Iacca"];
 
-const BOT_IMG = "Img/Logo.png";
+const BOT_IMG = "../Img/Logo.png";
 const BOT_NAME = "YINCO";
 const PERSON_NAME = "Studente";
 
@@ -50,31 +50,9 @@ function appendMessageBotDocente(name, img, side, text) {
         </div>
 
         <div class="msg-text">
-          <p>Le informazioni riguardanti il seguente docente possono essere trovate qui:</p>
+          <p>Information regarding the following professor can be found here:</p>
           <a href="${text}" target=blank>LINK</a>
           </div>
-      </div>
-    </div>
-  `;
-
-  msgerChat.insertAdjacentHTML("beforeend", msgHTML);
-  msgerChat.scrollTop += 500;
-}
-
-function appendMessageBotInfo(name, img, side, title, text) {
-  const msgHTML = `
-    <div class="msg ${side}-msg">
-      <div class="msg-img" style="background-image: url(${img})"></div>
-
-      <div class="msg-bubble">
-        <div class="msg-info">
-          <div class="msg-info-name">${name}</div>
-        </div>
-
-        <div class="msg-text">
-        <h5>${title}</h5>
-        <p>${text}</p>
-        </div>
       </div>
     </div>
   `;
@@ -94,7 +72,28 @@ function appendMessageBotErrore(name, img, side) {
         </div>
 
         <div class="msg-text">
-          <p>Le informazioni cercate non sono disponibili. Sei sicuro di aver scritto bene la domanda???</p>
+          <p>The information you are looking for is not available. Are you sure you wrote the question correctly???</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+  msgerChat.scrollTop += 500;
+}
+
+function appendMessageBotInfo(name, img, side, text) {
+  const msgHTML = `
+    <div class="msg ${side}-msg">
+      <div class="msg-img" style="background-image: url(${img})"></div>
+
+      <div class="msg-bubble">
+        <div class="msg-info">
+          <div class="msg-info-name">${name}</div>
+        </div>
+
+        <div class="msg-text">
+          <p>${text}</p>
         </div>
       </div>
     </div>
@@ -127,7 +126,7 @@ function botResponseInfo() {
       .then(res => res.json())
       .then (function(data) {
         if(data.body != undefined) {
-          appendMessageBotInfo(BOT_NAME, BOT_IMG, "left", data.title, data.body);
+          appendMessageBotInfo(BOT_NAME, BOT_IMG, "left", data.body);
         } else {
           appendMessageBotErrore(BOT_NAME, BOT_IMG, "left");
         }
